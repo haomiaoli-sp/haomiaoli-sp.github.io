@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haomiao Li</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .header-text p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .links a {
+            color: #222;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            margin-right: 18px;
+            font-size: 0.9rem;
+        }
+
+        .links a:hover {
+            border-bottom-color: #222;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .about p, .experience p {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .edu-item {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .edu-item span {
+            color: #888;
+        }
+
+        .company-block {
+            margin-bottom: 24px;
+        }
+
+        .company-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .company-block ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .company-block li {
+            font-size: 0.92rem;
+            color: #333;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .company-block li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #bbb;
+        }
+
+        .company-block li > ul {
+            margin-top: 6px;
+            padding-left: 0;
+        }
+
+        .company-block li > ul li {
+            padding-left: 16px;
+            font-size: 0.88rem;
+            color: #555;
+        }
+
+        .company-block li > ul li::before {
+            content: "·";
+            font-weight: bold;
+        }
+
+        .pub-item {
+            font-size: 0.92rem;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .pub-item em {
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 60px;
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .links {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+            }
+            .links a {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="photo/avatar-1.png" alt="Haomiao Li" class="avatar">
+        <div class="header-text">
+            <h1>Haomiao Li</h1>
+            <p>San Francisco Bay Area</p>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/haomiaoli/" target="_blank">LinkedIn</a>
+                <a href="https://grokipedia.com/page/Haomiao_Li" target="_blank">Grokipedia</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <h2>About</h2>
+        <p>
+            I am a Member of Technical Staff at Perplexity AI, working on Memory Agent and Related Queries. Previously I was a Tech Lead at Pinterest, driving the Related-Pins Recommendation system — the largest organic surface serving over 50% of organic traffic. I develop and productionize large-scale deep learning models for ranking, recommendation, and personalization. My work spans recommendation systems, ads ranking, NLP, and applied statistics.
+        </p>
+    </section>
+
+    <section class="experience">
+        <h2>What I Do</h2>
+
+        <div class="company-block">
+            <div class="company-name">Perplexity AI</div>
+            <ul>
+                <li><strong>Member of Technical Staff</strong> — 06/2025 – present
+                    <ul>
+                        <li>Build Memory Agent for Perplexity Computer.</li>
+                        <li>Build Perplexity Related Queries.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="company-block">
+            <div class="company-name">Pinterest</div>
+            <ul>
+                <li><strong>Machine Learning Engineer</strong> — 11/2020 – 06/2025
+                    <ul>
+                        <li>Developed large-scale deep learning ranking models (transformer, MMoE, DHEN) for closeup recommendations, bringing 10%+ engagement gains.</li>
+                        <li>Led video ads prediction models from GBDT to DNN+AutoML, improving CTR with $1M+ annual infra cost savings.</li>
+                        <li>Built transformer-based ads engagement model on home feed and related pins.</li>
+                        <li>Tech-led Ranking &amp; Blending team on roadmap, OKR planning, and cross-team delivery.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="company-block">
+            <div class="company-name">Uber Technologies</div>
+            <ul>
+                <li><strong>Applied Scientist, Uber Maps</strong> — 01/2019 – 11/2020
+                    <ul>
+                        <li>Developed transformer-based NLP models for intention detection and slot filling on rider–driver messages.</li>
+                        <li>Built the universal pickup suggestion ML model for non-Uber Pool rides globally.</li>
+                        <li>Owned end-to-end model delivery: feature engineering, real-time computation, and A/B experimentation.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="company-block">
+            <div class="company-name">BMW North America</div>
+            <ul>
+                <li><strong>Machine Learning Engineer</strong> — 07/2017 – 01/2019
+                    <ul>
+                        <li>Maps ETA Prediction — Reduce ETA MAE by 40s.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="edu-item">M.A. Statistics, Yale University <span>&middot; 2016–2017</span></div>
+        <div class="edu-item">B.S. Mathematics; B.S. Finance, The College of William and Mary <span>&middot; 2012–2016</span></div>
+    </section>
+
+    <section>
+        <h2>Publications</h2>
+        <div class="pub-item">Chen X., Rajesh K., Lawhon M., Wang Z., Li H., <strong>Li H.</strong>, Joshi S. V., Eksombatchai P., Yang J., Hsu Y.-P., Xu J., and Rosenberg C. "PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform," <em>ACM Conference on Recommender Systems (RecSys)</em>, 2025.</div>
+        <div class="pub-item"><strong>Li H.</strong>, Ebesu T., Jiang F., Adams J., Gudmundsson O., Sun Y., and Duan H. "<a href="https://medium.com/pinterest-engineering/deep-multi-task-learning-and-real-time-personalization-for-closeup-recommendations-1030edfe445f" target="_blank">Deep Multi-task Learning and Real-time Personalization for Closeup Recommendations</a>," <em>Pinterest Engineering Blog</em>, June 2023.</div>
+        <div class="pub-item">Cui R., <strong>Li H.</strong>, Mei L. and Shi J. "Effect of harvesting quota and protection zone in a reaction-diffusion model arising from fishery management," <em>Discrete and Continuous Dynamical Systems: Series B</em>, Vol. 22, no. 3, 2017, pp. 791–807.</div>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <p style="font-size: 0.95rem; color: #333;">haomiao.li at aya dot yale dot edu</p>
+    </section>
+
+    <footer>
+        &copy; 2026 Haomiao Li &middot; Last Updated: June 2026
+    </footer>
+</body>
+</html>
