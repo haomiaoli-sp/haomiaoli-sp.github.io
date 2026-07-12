@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haomiao Li — Member of Technical Staff at Perplexity AI. Previously Tech Lead at Pinterest. Working on large-scale recommendation, ranking, and agentic systems.">
+    <meta name="theme-color" content="#dfe8f6">
+    <meta name="color-scheme" content="light">
+    <meta property="og:title" content="Haomiao Li">
+    <meta property="og:description" content="Member of Technical Staff at Perplexity AI. Recommendation, ranking, and agentic systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="photo/avatar-1.png">
+    <link rel="icon" href="photo/avatar-1.png" type="image/png">
     <title>Haomiao Li</title>
     <style>
         * {
@@ -11,21 +19,177 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-body: #3a3a3c;
+            --accent: #3b6fd4;
+            --accent-soft: rgba(59, 111, 212, 0.12);
+            --glass-bg: rgba(255, 255, 255, 0.28);
+            --glass-border: rgba(255, 255, 255, 0.55);
+            --glass-shadow: 0 8px 40px rgba(15, 23, 42, 0.1),
+                            0 2px 10px rgba(15, 23, 42, 0.05),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.65),
+                            inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 14px;
+            --radius-pill: 999px;
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #222;
-            background: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
             line-height: 1.7;
-            max-width: 680px;
+            min-height: 100vh;
+            padding: 48px 24px 64px;
+            position: relative;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background:
+                radial-gradient(ellipse 80% 60% at 10% 0%, rgba(150, 190, 255, 0.7) 0%, transparent 55%),
+                radial-gradient(ellipse 70% 50% at 90% 10%, rgba(220, 170, 255, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 50% 100%, rgba(140, 230, 210, 0.55) 0%, transparent 55%),
+                radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255, 190, 170, 0.5) 0%, transparent 50%),
+                linear-gradient(165deg, #dfe8f6 0%, #ebe4f4 40%, #dff0ea 100%);
+            background-attachment: fixed;
+        }
+
+        ::selection {
+            background: rgba(120, 160, 255, 0.35);
+            color: var(--text);
+        }
+
+        /* Ambient floating orbs */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(70px);
+        }
+
+        body::before {
+            width: 480px;
+            height: 480px;
+            top: -80px;
+            left: -60px;
+            background: radial-gradient(circle, rgba(120, 170, 255, 0.65) 0%, transparent 70%);
+            animation: float-a 18s ease-in-out infinite;
+        }
+
+        body::after {
+            width: 440px;
+            height: 440px;
+            bottom: 5%;
+            right: -80px;
+            background: radial-gradient(circle, rgba(200, 140, 255, 0.55) 0%, transparent 70%);
+            animation: float-b 22s ease-in-out infinite;
+        }
+
+        @keyframes float-a {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, 50px) scale(1.08); }
+        }
+
+        @keyframes float-b {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, -30px) scale(1.1); }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            max-width: 700px;
             margin: 0 auto;
-            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Staggered entrance for top-level blocks */
+        .page > .glass {
+            animation: fade-up 0.7s var(--ease-out) both;
+        }
+
+        .page > .glass:nth-child(1) { animation-delay: 0.02s; }
+        .page > .glass:nth-child(2) { animation-delay: 0.08s; }
+        .page > .glass:nth-child(3) { animation-delay: 0.14s; }
+        .page > .glass:nth-child(4) { animation-delay: 0.2s; }
+        .page > .glass:nth-child(5) { animation-delay: 0.26s; }
+        .page > .glass:nth-child(6) { animation-delay: 0.32s; }
+        .page > .glass:nth-child(7) { animation-delay: 0.38s; }
+
+        /* Shared liquid glass surface */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+            -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.55) 0%,
+                rgba(255, 255, 255, 0.12) 35%,
+                rgba(255, 255, 255, 0.02) 55%,
+                rgba(255, 255, 255, 0.18) 100%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 160px 160px;
+            mix-blend-mode: soft-light;
+        }
+
+        .glass > * {
+            position: relative;
+            z-index: 1;
         }
 
         header {
             display: flex;
             align-items: center;
             gap: 32px;
-            margin-bottom: 48px;
+            margin-bottom: 28px;
+            padding: 28px 32px;
+            border-radius: var(--radius-lg);
         }
 
         .avatar {
@@ -33,73 +197,331 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 20%;
             flex-shrink: 0;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+            box-shadow:
+                0 8px 28px rgba(15, 23, 42, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.4),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+        }
+
+        @media (hover: hover) {
+            .avatar:hover {
+                transform: scale(1.03);
+                box-shadow:
+                    0 12px 36px rgba(15, 23, 42, 0.16),
+                    0 0 0 1px rgba(255, 255, 255, 0.5),
+                    0 0 28px rgba(160, 190, 255, 0.35);
+            }
         }
 
         .header-text h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
+            font-size: 1.85rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
             margin-bottom: 6px;
+            color: var(--text);
+            background: linear-gradient(135deg, #1d1d1f 0%, #3a4560 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Fallback if gradient text unsupported */
+        @supports not (background-clip: text) {
+            .header-text h1 {
+                color: var(--text);
+                background: none;
+                -webkit-text-fill-color: unset;
+            }
         }
 
         .header-text p {
-            color: #555;
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .links a {
-            color: #222;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid #ccc;
-            margin-right: 18px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            box-shadow:
+                0 2px 12px rgba(15, 23, 42, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.55),
+                inset 0 -0.5px 0 rgba(255, 255, 255, 0.15);
+            transition:
+                transform 0.28s var(--ease-out),
+                box-shadow 0.28s ease,
+                background 0.28s ease,
+                border-color 0.28s ease,
+                backdrop-filter 0.28s ease,
+                -webkit-backdrop-filter 0.28s ease;
         }
 
-        .links a:hover {
-            border-bottom-color: #222;
+        .links a::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+                125deg,
+                rgba(255, 255, 255, 0.45) 0%,
+                rgba(255, 255, 255, 0.08) 40%,
+                transparent 60%,
+                rgba(255, 255, 255, 0.15) 100%
+            );
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: -1;
+            transition: opacity 0.28s ease, background 0.28s ease;
+        }
+
+        .links a::after {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            border-radius: inherit;
+            background: radial-gradient(
+                circle at 30% 20%,
+                rgba(255, 255, 255, 0.55) 0%,
+                rgba(255, 255, 255, 0.1) 35%,
+                transparent 65%
+            );
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+            transition: opacity 0.32s ease, transform 0.32s ease;
+            transform: scale(0.85);
+        }
+
+        @media (hover: hover) {
+            .links a:hover {
+                background: rgba(255, 255, 255, 0.18);
+                backdrop-filter: blur(32px) saturate(220%) brightness(1.08);
+                -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08);
+                border-color: rgba(255, 255, 255, 0.85);
+                transform: translateY(-2px) scale(1.03);
+                box-shadow:
+                    0 10px 28px rgba(15, 23, 42, 0.12),
+                    0 0 0 1px rgba(255, 255, 255, 0.35),
+                    inset 0 1px 1px rgba(255, 255, 255, 0.95),
+                    inset 0 -1px 1px rgba(255, 255, 255, 0.25),
+                    0 0 24px rgba(180, 200, 255, 0.35);
+            }
+
+            .links a:hover::before {
+                opacity: 1;
+                background: linear-gradient(
+                    125deg,
+                    rgba(255, 255, 255, 0.7) 0%,
+                    rgba(255, 255, 255, 0.15) 38%,
+                    transparent 55%,
+                    rgba(200, 220, 255, 0.25) 100%
+                );
+            }
+
+            .links a:hover::after {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .links a:active {
+            transform: translateY(0) scale(0.99);
+            box-shadow:
+                0 4px 14px rgba(15, 23, 42, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .links a:focus-visible {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.95);
+            box-shadow:
+                0 0 0 3px rgba(120, 160, 255, 0.45),
+                0 8px 22px rgba(15, 23, 42, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            padding: 24px 28px;
+            border-radius: var(--radius-md);
         }
 
         h2 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.78rem;
+            font-weight: 650;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7aa2ff, #c29bff);
+            box-shadow: 0 0 8px rgba(140, 170, 255, 0.55);
+            flex-shrink: 0;
         }
 
         .about p, .experience p {
             font-size: 0.95rem;
-            color: #333;
+            color: var(--text-body);
             margin-bottom: 12px;
         }
 
+        .about p {
+            text-wrap: pretty;
+        }
+
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .edu-item {
-            margin-bottom: 8px;
             font-size: 0.95rem;
-            color: #333;
+            color: var(--text-body);
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        @media (hover: hover) {
+            .edu-item:hover {
+                background: rgba(255, 255, 255, 0.24);
+                border-color: rgba(255, 255, 255, 0.6);
+                box-shadow:
+                    0 6px 18px rgba(15, 23, 42, 0.06),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            }
         }
 
         .edu-item span {
-            color: #888;
+            color: var(--text-secondary);
         }
 
         .company-block {
-            margin-bottom: 24px;
+            margin-bottom: 14px;
+            padding: 16px 18px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow:
+                0 2px 14px rgba(15, 23, 42, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.55);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease,
+                backdrop-filter 0.25s ease,
+                -webkit-backdrop-filter 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .company-block:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Subtle “current” accent on first role */
+        .company-block.current {
+            border-color: rgba(130, 170, 255, 0.55);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.22) 0%,
+                rgba(180, 205, 255, 0.18) 100%
+            );
+            box-shadow:
+                0 2px 14px rgba(15, 23, 42, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.65),
+                0 0 0 1px rgba(140, 175, 255, 0.12);
+        }
+
+        .company-block.current .company-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .company-block.current .company-name::after {
+            content: "Now";
+            font-size: 0.68rem;
+            font-weight: 650;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #3b5fc9;
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        @media (hover: hover) {
+            .company-block:hover {
+                background: rgba(255, 255, 255, 0.22);
+                backdrop-filter: blur(36px) saturate(210%) brightness(1.06);
+                -webkit-backdrop-filter: blur(36px) saturate(210%) brightness(1.06);
+                border-color: rgba(255, 255, 255, 0.7);
+                transform: translateY(-1px);
+                box-shadow:
+                    0 10px 28px rgba(15, 23, 42, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+                    0 0 20px rgba(180, 200, 255, 0.2);
+            }
+
+            .company-block.current:hover {
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.28) 0%,
+                    rgba(180, 205, 255, 0.26) 100%
+                );
+                border-color: rgba(140, 180, 255, 0.75);
+            }
         }
 
         .company-name {
             font-size: 0.95rem;
-            font-weight: 600;
-            color: #222;
+            font-weight: 650;
+            color: var(--text);
             margin-bottom: 8px;
+            letter-spacing: -0.01em;
         }
 
         .company-block ul {
@@ -110,7 +532,7 @@
 
         .company-block li {
             font-size: 0.92rem;
-            color: #333;
+            color: var(--text-body);
             padding-left: 20px;
             position: relative;
             margin-bottom: 8px;
@@ -121,7 +543,7 @@
             content: "—";
             position: absolute;
             left: 0;
-            color: #bbb;
+            color: rgba(0, 0, 0, 0.22);
         }
 
         .company-block li > ul {
@@ -132,7 +554,7 @@
         .company-block li > ul li {
             padding-left: 16px;
             font-size: 0.88rem;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .company-block li > ul li::before {
@@ -142,129 +564,282 @@
 
         .pub-item {
             font-size: 0.92rem;
-            color: #333;
+            color: var(--text-body);
             margin-bottom: 12px;
-            line-height: 1.6;
+            line-height: 1.65;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            transition:
+                background 0.25s ease,
+                backdrop-filter 0.25s ease,
+                -webkit-backdrop-filter 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .pub-item:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (hover: hover) {
+            .pub-item:hover {
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(28px) saturate(200%) brightness(1.05);
+                -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.05);
+                border-color: rgba(255, 255, 255, 0.65);
+                box-shadow:
+                    0 6px 20px rgba(15, 23, 42, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            }
         }
 
         .pub-item em {
             font-style: italic;
         }
 
-        footer {
-            margin-top: 60px;
-            color: #aaa;
-            font-size: 0.85rem;
+        .pub-item a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(59, 111, 212, 0.28);
+            border-radius: 4px;
+            padding: 0 2px;
+            transition:
+                border-color 0.2s ease,
+                color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
+        @media (hover: hover) {
+            .pub-item a:hover {
+                color: #1a3f7a;
+                border-bottom-color: transparent;
+                background: rgba(255, 255, 255, 0.45);
+                backdrop-filter: blur(12px) saturate(180%);
+                -webkit-backdrop-filter: blur(12px) saturate(180%);
+                box-shadow:
+                    0 0 0 4px rgba(255, 255, 255, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .pub-item a:focus-visible {
+            outline: none;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 3px rgba(120, 160, 255, 0.45);
+            border-bottom-color: transparent;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 0.95rem;
+            color: var(--text-body);
+            padding: 10px 16px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(16px) saturate(170%);
+            -webkit-backdrop-filter: blur(16px) saturate(170%);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            box-shadow:
+                0 2px 10px rgba(15, 23, 42, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            user-select: all;
+            cursor: text;
+            transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        @media (hover: hover) {
+            .contact-email:hover {
+                background: rgba(255, 255, 255, 0.32);
+                border-color: rgba(255, 255, 255, 0.7);
+                box-shadow:
+                    0 6px 18px rgba(15, 23, 42, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+                    0 0 18px rgba(180, 200, 255, 0.25);
+            }
+        }
+
+        footer {
+            margin-top: 36px;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Mobile */
         @media (max-width: 500px) {
+            body {
+                padding: 28px 16px 48px;
+                /* Fixed backgrounds can jank on mobile */
+                background-attachment: scroll;
+            }
+
             header {
                 flex-direction: column;
                 text-align: center;
+                padding: 24px 20px;
+                gap: 20px;
             }
+
+            .avatar {
+                width: 128px;
+                height: 128px;
+            }
+
+            .header-text h1 {
+                font-size: 1.65rem;
+            }
+
             .links {
-                display: flex;
                 justify-content: center;
-                gap: 12px;
             }
-            .links a {
-                margin-right: 0;
+
+            section {
+                padding: 20px;
+            }
+
+            .company-block {
+                padding: 14px;
+            }
+
+            /* Lighter blur for battery / jank on phones */
+            .glass {
+                backdrop-filter: blur(24px) saturate(180%);
+                -webkit-backdrop-filter: blur(24px) saturate(180%);
+            }
+
+            .company-block,
+            .pub-item,
+            .edu-item {
+                backdrop-filter: blur(12px) saturate(150%);
+                -webkit-backdrop-filter: blur(12px) saturate(150%);
+            }
+        }
+
+        /* Prefer less GPU work when reduced motion is on */
+        @media (prefers-reduced-motion: reduce) {
+            body::before,
+            body::after {
+                animation: none;
+            }
+
+            .page > .glass {
+                animation: none;
+            }
+
+            .links a,
+            .company-block,
+            .pub-item,
+            .edu-item,
+            .avatar,
+            .contact-email {
+                transition: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="photo/avatar-1.png" alt="Haomiao Li" class="avatar">
-        <div class="header-text">
-            <h1>Haomiao Li</h1>
-            <p>San Francisco Bay Area</p>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/haomiao-li-98a24181/" target="_blank">LinkedIn</a>
-                <a href="https://grokipedia.com/page/Haomiao_Li" target="_blank">Grokipedia</a>
+    <div class="page">
+        <header class="glass">
+            <img src="photo/avatar-1.png" alt="Portrait of Haomiao Li" class="avatar" width="150" height="150">
+            <div class="header-text">
+                <h1>Haomiao Li</h1>
+                <p>San Francisco Bay Area</p>
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/haomiao-li-98a24181/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://grokipedia.com/page/Haomiao_Li" target="_blank" rel="noopener noreferrer">Grokipedia</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="about">
-        <h2>About</h2>
-        <p>
-            I am a Member of Technical Staff at Perplexity AI, working on Memory Agent and Related Queries. Previously I was a Tech Lead at Pinterest, driving the Related-Pins Recommendation system — the largest organic surface serving over 50% of organic traffic. I develop and productionize large-scale deep learning models for ranking, recommendation, and personalization. My work spans large scale agentic systems, recommendation engines, ads ranking and language models.
-        </p>
-    </section>
+        <section class="about glass" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
+            <p>
+                I am a Member of Technical Staff at Perplexity AI, working on Memory Agent and Related Queries. Previously I was a Tech Lead at Pinterest, driving the Related-Pins Recommendation system — the largest organic surface serving over 50% of organic traffic. I develop and productionize large-scale deep learning models for ranking, recommendation, and personalization. My work spans large scale agentic systems, recommendation engines, ads ranking and language models.
+            </p>
+        </section>
 
-    <section class="experience">
-        <h2>What I Do</h2>
+        <section class="experience glass" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">What I Do</h2>
 
-        <div class="company-block">
-            <div class="company-name">Perplexity AI</div>
-            <ul>
-                <li><strong>Member of Technical Staff</strong> &middot; 2025 - present
-                    <ul>
-                        <li>Build Memory Agent for Perplexity Computer.</li>
-                        <li>Build Perplexity Related Queries.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+            <div class="company-block current">
+                <div class="company-name">Perplexity AI</div>
+                <ul>
+                    <li><strong>Member of Technical Staff</strong> &middot; 2025 - present
+                        <ul>
+                            <li>Build Memory Agent for Perplexity Computer.</li>
+                            <li>Build Perplexity Related Queries.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="company-block">
-            <div class="company-name">Pinterest</div>
-            <ul>
-                <li><strong>Machine Learning Engineer</strong> &middot; 2020 – 2025
-                    <ul>
-                        <li>Large scale Transformer based Recsys ranking for Related Pin recommendations.</li>
-                        <li>Pioneered MMoE recommendation model for related pins.</li>
-                        <li>Large scale Ads CTR prediction model.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+            <div class="company-block">
+                <div class="company-name">Pinterest</div>
+                <ul>
+                    <li><strong>Machine Learning Engineer</strong> &middot; 2020 – 2025
+                        <ul>
+                            <li>Large scale Transformer based Recsys ranking for Related Pin recommendations.</li>
+                            <li>Pioneered MMoE recommendation model for related pins.</li>
+                            <li>Large scale Ads CTR prediction model.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="company-block">
-            <div class="company-name">Uber Technologies</div>
-            <ul>
-                <li><strong>Applied Scientist, Uber Maps</strong> &middot; 2019 – 2020
-                    <ul>
-                        <li>Transformer-based NLP models for intention detection and slot filling on rider–driver messages.</li>
-                        <li>Universal pickup suggestion ML model for non-Uber Pool rides globally.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+            <div class="company-block">
+                <div class="company-name">Uber Technologies</div>
+                <ul>
+                    <li><strong>Applied Scientist, Uber Maps</strong> &middot; 2019 – 2020
+                        <ul>
+                            <li>Transformer-based NLP models for intention detection and slot filling on rider–driver messages.</li>
+                            <li>Universal pickup suggestion ML model for non-Uber Pool rides globally.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="company-block">
-            <div class="company-name">BMW North America</div>
-            <ul>
-                <li><strong>Machine Learning Engineer</strong> &middot; 2017 – 2019
-                    <ul>
-                        <li>Maps ETA Prediction — Reduce ETA MAE by 40s.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
+            <div class="company-block">
+                <div class="company-name">BMW North America</div>
+                <ul>
+                    <li><strong>Machine Learning Engineer</strong> &middot; 2017 – 2019
+                        <ul>
+                            <li>Maps ETA Prediction — Reduce ETA MAE by 40s.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <section>
-        <h2>Education</h2>
-        <div class="edu-item">M.A. Statistics, Yale University <span>&middot; 2016–2017</span></div>
-        <div class="edu-item">B.S. Mathematics; B.S. Finance, The College of William and Mary <span>&middot; 2012–2016</span></div>
-    </section>
+        <section class="glass" aria-labelledby="education-heading">
+            <h2 id="education-heading">Education</h2>
+            <div class="edu-list">
+                <div class="edu-item">M.A. Statistics, Yale University <span>&middot; 2016–2017</span></div>
+                <div class="edu-item">B.S. Mathematics; B.S. Finance, The College of William and Mary <span>&middot; 2012–2016</span></div>
+            </div>
+        </section>
 
-    <section>
-        <h2>Publications</h2>
-        <div class="pub-item">Chen X., Rajesh K., Lawhon M., Wang Z., Li H., <strong>Li H.</strong>, Joshi S. V., Eksombatchai P., Yang J., Hsu Y.-P., Xu J., and Rosenberg C. "<a href="https://arxiv.org/abs/2507.12704" target="_blank">PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform</a>," <em>ACM Conference on Recommender Systems (RecSys)</em>, 2025.</div>
-        <div class="pub-item"><strong>Li H.</strong>, Ebesu T., Jiang F., Adams J., Gudmundsson O., Sun Y., and Duan H. "<a href="https://medium.com/pinterest-engineering/deep-multi-task-learning-and-real-time-personalization-for-closeup-recommendations-1030edfe445f" target="_blank">Deep Multi-task Learning and Real-time Personalization for Closeup Recommendations</a>," <em>Pinterest Engineering Blog</em>, June 2023.</div>
-        <div class="pub-item">Cui R., <strong>Li H.</strong>, Mei L. and Shi J. "Effect of harvesting quota and protection zone in a reaction-diffusion model arising from fishery management," <em>Discrete and Continuous Dynamical Systems: Series B</em>, Vol. 22, no. 3, 2017, pp. 791–807.</div>
-    </section>
+        <section class="glass" aria-labelledby="publications-heading">
+            <h2 id="publications-heading">Publications</h2>
+            <div class="pub-item">Chen X., Rajesh K., Lawhon M., Wang Z., Li H., <strong>Li H.</strong>, Joshi S. V., Eksombatchai P., Yang J., Hsu Y.-P., Xu J., and Rosenberg C. "<a href="https://arxiv.org/abs/2507.12704" target="_blank" rel="noopener noreferrer">PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform</a>," <em>ACM Conference on Recommender Systems (RecSys)</em>, 2025.</div>
+            <div class="pub-item"><strong>Li H.</strong>, Ebesu T., Jiang F., Adams J., Gudmundsson O., Sun Y., and Duan H. "<a href="https://medium.com/pinterest-engineering/deep-multi-task-learning-and-real-time-personalization-for-closeup-recommendations-1030edfe445f" target="_blank" rel="noopener noreferrer">Deep Multi-task Learning and Real-time Personalization for Closeup Recommendations</a>," <em>Pinterest Engineering Blog</em>, June 2023.</div>
+            <div class="pub-item">Cui R., <strong>Li H.</strong>, Mei L. and Shi J. "Effect of harvesting quota and protection zone in a reaction-diffusion model arising from fishery management," <em>Discrete and Continuous Dynamical Systems: Series B</em>, Vol. 22, no. 3, 2017, pp. 791–807.</div>
+        </section>
 
-    <section>
-        <h2>Contact</h2>
-        <p style="font-size: 0.95rem; color: #333;">haomiao.li at aya dot yale dot edu</p>
-    </section>
+        <section class="glass" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <p class="contact-email">haomiao.li at aya dot yale dot edu</p>
+        </section>
 
-    <footer>
-        &copy; 2026 Haomiao Li &middot; Last Updated: June 2026
-    </footer>
+        <footer class="glass">
+            &copy; 2026 Haomiao Li &middot; Last Updated: June 2026
+        </footer>
+    </div>
 </body>
 </html>
